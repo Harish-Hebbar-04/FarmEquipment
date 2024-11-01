@@ -1,0 +1,172 @@
+/* App.css */
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  align-items: center; 
+  justify-content: center;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align the content */
+  justify-content: flex-start; /* Align items to the top */
+  min-height: 100vh; /* Full height */
+  color: #333; /* Dark text color */
+}
+
+header {
+  background-color: #4caf50; /* Green background */
+  width: 100%;
+  padding: 20px;
+  text-align: center; /* Center align header text */
+}
+
+nav ul {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove padding */
+  display: flex; /* Use flexbox for nav items */
+  justify-content: center; /* Center align nav items */
+}
+
+nav ul li {
+  margin: 0 15px; /* Spacing between items */
+}
+
+nav a {
+  color: white; /* Link color */
+  text-decoration: none; /* Remove underline */
+}
+
+nav a:hover {
+  text-decoration: underline; /* Underline on hover */
+}
+
+.hero {
+  text-align: center; /* Center align hero text */
+  margin: 20px; /* Spacing around hero section */
+}
+
+.get-started {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50; /* Button background */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  text-decoration: none; /* Remove underline */
+  transition: background-color 0.3s; /* Smooth transition */
+}
+
+.get-started:hover {
+  background-color: #45a049; /* Darker green on hover */
+}
+
+main {
+  flex: 1; /* Allow main to grow */
+  width: 100%; /* Full width */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center align main content */
+}
+
+footer {
+  margin-top: auto; /* Push footer to the bottom */
+  padding: 10px;
+  background-color: #4caf50; /* Green footer */
+  width: 100%; /* Full width footer */
+  text-align: center; /* Center align footer text */
+}
+
+/* Additional styling to ensure content is centered */
+.add-equipment, .create-booking, .farmer-booking {
+  text-align: center; /* Center align content in these components */
+  width: 100%; /* Full width for components */
+  max-width: 600px; /* Limit width for readability */
+  margin: 20px auto; /* Center and add space */
+}
+
+.equipment-list {
+  text-align: center; /* Center align content in EquipmentList component */
+  width: 100%; /* Full width for component */
+  max-width: 800px; /* Limit width for readability */
+  margin: 20px auto; /* Center and add space */
+}
+
+/* Add this to your App.css or a separate CSS file */
+
+/* Add this to your App.css or a separate CSS file */
+
+.component-container {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.component-container h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.component-container form {
+  display: flex;
+  flex-direction: column;
+}
+
+.component-container input {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #333;
+  background-color: #333;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+}
+
+.component-container input:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
+
+.component-container button {
+  padding: 10px;
+  background-color: #4CAF50;
+  color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.component-container button:hover {
+  background-color: #45a049;
+}
+.component-container input[type="date"] {
+  color: #333; /* Dark font color for readability */
+  padding: 10px;
+  background-color: #333;
+  border: 1px solid #333;
+  border-radius: 5px;
+  font-size: 16px;
+  transition: border-color 0.3s ease;
+  -webkit-appearance: none; /* Remove default styling for better control */
+  appearance: none;
+}
+
+.component-container input[type="date"]::-webkit-datetime-edit {
+  color: #333; /* Ensure the date, month, and year text color is dark */
+}
+
+.component-container input[type="date"]:focus {
+  outline: none;
+  border-color: #4CAF50;
+}
