@@ -1,13 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, Routes, Link } from 'react-router-dom';
 import EquipmentList from './components/EquipmentList';
 import AddEquipment from './components/AddEquipment';
 import CreateBooking from './components/CreateBooking';
-import FarmerBooking from './components/FarmerBookings';
+import FarmerBooking from './components/MyBookings';
 import Carousel from './components/Carousel';
+import Auth from './Auth'; // Import the Auth component
 import './App.css';
 
 function App() {
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Authentication state
+
+  const handleLogout = () => {
+    localStorage.removeItem('token'); // Clear the token from local storage
+    setIsAuthenticated(false); // Update authentication state
+  };
+
   return (
     <div className="app">
       <header>
@@ -15,10 +23,15 @@ function App() {
         <nav>
           <ul>
             <li><Link to="/">Home</Link></li>
-            <li><Link to="/equipment">Equipment</Link></li>
-            <li><Link to="/add-equipment">Add Equipment</Link></li>
-            <li><Link to="/create-booking">Book Equipment</Link></li>
-            <li><Link to="/farmer-booking">My Bookings</Link></li>
+            {/* <li><Link to="/equipment">Equipment</Link></li> */}
+            {isAuthenticated && <li><Link to="/equipment">Equipment</Link></li>}
+            {isAuthenticated && <li><Link to="/add-equipment">Add Equipment</Link></li>}
+            {isAuthenticated && <li><Link to="/farmer-booking">My Bookings</Link></li>}
+            {isAuthenticated ? (
+              <li><button onClick={handleLogout}>Logout</button></li>
+            ) : (
+              <li><Link to="/auth">Login/Register</Link></li> 
+            )}
           </ul>
         </nav>
       </header>
@@ -33,8 +46,8 @@ function App() {
                 
                 <h2>Find the Right Equipment for Your Farm Needs</h2>
                 <p>Browse and rent equipment to suit your agricultural needs.</p>
-                <Carousel/>
-                <Link className="get-started" to="/equipment">Get Started</Link>
+                <Carousel />
+                <Link className="get-started" to="/auth">Get Started</Link>
               </div>
             } 
           />
@@ -42,6 +55,7 @@ function App() {
           <Route path="/add-equipment" element={<AddEquipment />} />
           <Route path="/create-booking" element={<CreateBooking />} />
           <Route path="/farmer-booking" element={<FarmerBooking />} />
+          <Route path="/auth" element={<Auth setIsAuthenticated={setIsAuthenticated} />} /> {/* Route for authentication */}
         </Routes>
       </main>
       <footer>
